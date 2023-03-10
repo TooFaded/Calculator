@@ -1,0 +1,56 @@
+body {
+    background-image: url(https://i.graphicmama.com/blog/wp-content/uploads/2019/12/19074950/Abstract-Futuristic-Free-HD-Background-with-Honeycomb.jpg);
+}
+
+.container {
+    border: 5px solid white;
+    border-radius: 20px;
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    width: 370px;
+    
+
+
+}
+
+.screen {
+    width: 99%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 3rem;
+    height: 80px;
+    text-align: right;
+}
+
+button {
+    height: 80px;
+    width: 80px;
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 2em;
+}
+
+button:hover {
+    background-color: rgba(121, 183, 255, 0.74);
+
+}
+
+button:active {
+    background-color: rgba(186, 186, 186, 0.3);
+
+}
+
+
+.equal-sign {
+   height: 100%;
+   grid-area: 2/ 4/ 6 /5;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+
+}
