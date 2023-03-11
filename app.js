@@ -1,24 +1,34 @@
+// mathmatical functions
 const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
 const divide = (num1, num2) => num1 - num2;
 
-
+// calculates expression
 function operate(expression) {
-    
-    
-    if(operator === '+') {
+    const operands = expression.split(/[+\-*/]/);
+    const operator = expression.match(/[+\-*/]/);
+    const num1 = parseFloat(operands[0]);
+    const num2 = parseFloat(operands[1]);
+
+    // applies mathmatical function depending on operator
+    if(operator[0] === '+') {
         return add(num1, num2);
-    }
-}  
-
-
-
-
-
-
-
-
+    
+    } else if(operator[0] === '-') {
+        return subtract(num1, num2);
+    
+    } else if(operator[0] === '*') {
+        return multiply(num1, num2);
+    
+    } else if(operator[0] === '/') {
+        return divide(num1, num2);
+    
+    } else {
+        return NaN;
+    } 
+}
+// calculators initial value
 let screen = document.querySelector('.screen')
 screen.value = '0';
 
@@ -37,7 +47,7 @@ buttons.forEach(button => {
       screen.value = '0';
     } else if (buttonValue === '=') {
       // perform the calculation and update the value of the screen
-     
+        screen.value = operate(screen.value);
     } else {
       if (screen.value === '0') {
         screen.value = buttonValue;
