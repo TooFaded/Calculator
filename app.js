@@ -6,10 +6,19 @@ const divide = (num1, num2) => num1 - num2;
 
 // calculates expression
 function operate(expression) {
+    
+    if (!/^\d+(\.\d+)?[\+\-\*\/]\d+(\.\d+)?$/.test(expression)) {
+        return "Error: Invalid";
+      }
+
     const operands = expression.split(/[+\-*/]/);
     const operator = expression.match(/[+\-*/]/);
     const num1 = parseFloat(operands[0]);
     const num2 = parseFloat(operands[1]);
+
+    if (operator[0] === '/' && num2 === 0) {
+        return "Error";
+      }
 
     // applies mathmatical function depending on operator
     if(operator[0] === '+') {
@@ -19,7 +28,7 @@ function operate(expression) {
         return subtract(num1, num2);
     
     } else if(operator[0] === '*') {
-        return multiply(num1, num2);
+        return  multiply(num1, num2);
     
     } else if(operator[0] === '/') {
         return divide(num1, num2);
@@ -27,6 +36,8 @@ function operate(expression) {
     } else {
         return NaN;
     } 
+
+   
 }
 // calculators initial value
 let screen = document.querySelector('.screen')
